@@ -171,7 +171,7 @@ jobs:
           datasource:
             url: ${{ secrets.DATABASE_URL }} # 예dbc:mysql://localhost:3306/istory
             username: ${{ secrets.MYSQL_USERNAME }}
-            password: ${{ secrets.MYSQL_PASSWORD }}
+            password: user12345 # ${{ secrets.MYSQL_PASSWORD }}
             driver-class-name: com.mysql.cj.jdbc.Driver
           jpa:
             database-platform: org.hibernate.dialect.MySQL8Dialect
