@@ -266,6 +266,6 @@ jobs:
           --query 'deploymentId')
         echo "deployment_id=${DEPLOYMENT_ID}" >> $GITHUB_OUTPUT
 
-    - name: 배포 완료 까지 대기
+    - name: 배포 완료 까지 대기 #asd
       run: |
         aws deploy wait deployment-successful --deployment-id ${{ steps.deploy.outputs.deployment_id }}
