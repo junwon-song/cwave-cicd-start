@@ -228,3 +228,12 @@ jobs:
         aws s3 cp deployment/${{ env.ARTIFACT_NAME }} s3://${{ secrets.AWS_S3_BUCKET }}/artifacts/
         # 배포 패키지 업로드
         aws s3 cp deploy.zip s3://${{ secrets.AWS_S3_BUCKET }}/deploy/deploy.zip
+
+    - name: 배포 정보 표시
+      run: |
+        echo "## 📦 배포 정보" >> $GITHUB_STEP_SUMMARY
+        echo "| 항목 | 내용 |" >> $GITHUB_STEP_SUMMARY
+        echo "|------|------|" >> $GITHUB_STEP_SUMMARY
+        echo "| 🎯 버킷 | \`${{ secrets.AWS_S3_BUCKET }}\` |" >> $GITHUB_STEP_SUMMARY
+        echo "| 📄 파일명 | \`${{ env.ARTIFACT_NAME }}\` |" >> $GITHUB_STEP_SUMMARY
+        echo "| 🕒 배포 시각 | $(date) |" >> $GITHUB_STEP_SUMMARY
